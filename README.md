@@ -1,1 +1,1 @@
-# stepic_120491
+# https://stepik.org/course/120491/info
