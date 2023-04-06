@@ -1,7 +1,7 @@
 """
 5.5 Тестовое задание по Selenium №4
 """
-
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -47,8 +47,7 @@ try:
                     EC.element_to_be_clickable((By.XPATH, '//a[@id="logout_sidebar_link"]')))
                 btn_logout.click()
                 print(f'Logout for "{user}" Success\n')
-        except Exception as e:
-            errors.append(e)
+        except TimeoutException:
             print(f'Test error for "{user}"!!!\n')
             driver.get(base_url)
             continue
