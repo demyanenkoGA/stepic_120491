@@ -13,7 +13,6 @@ driver = webdriver.Chrome()
 base_url = 'https://www.saucedemo.com/'
 users_login = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user']
 password_for_all = 'secret_sauce'
-errors = []
 
 try:
     driver.get(base_url)
