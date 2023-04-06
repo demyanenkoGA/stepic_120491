@@ -1,0 +1,50 @@
+# >> pytest
+"""
+collected 4 items
+
+test_mail_1.py ..                                             [ 50%]
+test_mail_2.py ..                                             [100%]
+"""
+
+
+# >> pytest -s -v
+"""
+collected 4 items
+
+test_mail_1.py::test_sending_mail_1 Enter System Success
+<Send Mail 1>
+PASSED
+test_mail_1.py::test_sending_mail_2 Enter System Success
+<Send Mail 2>
+PASSED
+test_mail_2.py::test_sending_mail_1 <Send Mail 1>
+PASSED
+test_mail_2.py::test_sending_mail_2 <Send Mail 2>
+PASSED
+"""
+
+
+# >> pytest -v
+"""
+collected 4 items
+
+test_mail_1.py::test_sending_mail_1 PASSED                          [ 25%]
+test_mail_1.py::test_sending_mail_2 PASSED                          [ 50%]
+test_mail_2.py::test_sending_mail_1 PASSED                          [ 75%]
+test_mail_2.py::test_sending_mail_2 PASSED                          [100%]
+"""
+
+
+# >> pytest -s
+"""
+collected 4 items
+
+test_mail_1.py Enter System Success
+<Send Mail 1>
+.Enter System Success
+<Send Mail 2>
+.
+test_mail_2.py <Send Mail 1>
+.<Send Mail 2>
+.
+"""
