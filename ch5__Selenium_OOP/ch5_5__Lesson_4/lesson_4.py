@@ -2,7 +2,6 @@
 5.5 Тестовое задание по Selenium №4
 """
 
-from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -14,6 +13,7 @@ driver = webdriver.Chrome()
 base_url = 'https://www.saucedemo.com/'
 users_login = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user']
 password_for_all = 'secret_sauce'
+errors = []
 
 try:
     driver.get(base_url)
@@ -47,9 +47,12 @@ try:
                     EC.element_to_be_clickable((By.XPATH, '//a[@id="logout_sidebar_link"]')))
                 btn_logout.click()
                 print(f'Logout for "{user}" Success\n')
-        except TimeoutException:
+        except Exception as e:
+            errors.append(e)
+            print(f'Test error for "{user}"!!!\n')
             driver.get(base_url)
             continue
+
 finally:
     sleep(5)
     driver.close()
