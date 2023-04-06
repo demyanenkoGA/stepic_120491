@@ -1,5 +1,5 @@
 """
-5.2 Smoke testing всего бизнес пути + ООП
+5.3
 """
 from selenium import webdriver
 from time import sleep
@@ -7,6 +7,8 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from ch5__Selenium_OOP.ch5_3__Auth_module.login_page import Login_page
 
 
 class Test_1():
@@ -22,17 +24,8 @@ class Test_1():
         login_standard_user = 'standard_user'
         password_for_all = 'secret_sauce'
 
-        user_name = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//input[@id="user-name"]')))
-        user_name.send_keys(login_standard_user)
-        print(f"Input Login")
-
-        password = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//input[@id="password"]')))
-        password.send_keys(password_for_all)
-        print(f"Input Password")
-
-        btn_login = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//input[@id="login-button"]')))
-        btn_login.click()
-        print(f"Click Login Button")
+        login = Login_page(driver)
+        login.authorization(login_standard_user, password_for_all)
 
         select_product = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//button[@id="add-to-cart-sauce-labs-backpack"]')))
         select_product.click()

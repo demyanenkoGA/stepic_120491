@@ -8,7 +8,7 @@ from time import sleep
 class Test_1():
     def test_select_product(self):
         driver = webdriver.Chrome()
-        base_url = 'https://demoqa.com/dynamic-properties'
+        base_url = 'https://www.saucedemo.com/'
         driver.get(base_url)
         driver.maximize_window()
         sleep(5)
